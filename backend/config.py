@@ -3,7 +3,7 @@ config = {
         'engine': 'postgresql',
         'host': 'localhost',
         'db': 'note',
-        'user': 'anton',
+        'user': 'postgres',
         'password': '',
         'port': '5432'
     },

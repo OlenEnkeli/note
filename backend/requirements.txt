@@ -4,3 +4,4 @@ alembic
 gunicorn
 psycopg2
 marshmallow
+marshmallow-jsonapi
