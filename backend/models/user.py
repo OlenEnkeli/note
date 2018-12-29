@@ -12,4 +12,3 @@ class User(BaseModel):
     password = Column(String(160), nullable=False)
     is_active = Column(Boolean(), default=False)
     activation_code = Column(String(160), default=False)
-

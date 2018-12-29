@@ -1,49 +1,16 @@
 import falcon
 
-from sqlalchemy import create_engine
-from sqlalchemy.orm import scoped_session
-from sqlalchemy.orm import sessionmaker
+from libs.alchemy import alchemy_middleware
 
-from config import config
-
-from libs.auth import *
-
-from resources.index import *
-from resources.user import *
-
-
-engine = create_engine(
-    '{engine}://{user}:{password}@{host}:{port}/{db}'.format(**config['db'])
-)
-
-session_factory = sessionmaker(bind=engine)
-session = scoped_session(session_factory)
-
-
-class SQLAlchemySessionManager:
-
-    def __init__(self, session):
-        self.session = session
-
-    def process_resource(self, req, resp, resource, params):
-        resource.session = self.session()
-
-    def process_response(self, req, resp, resource, req_succeeded):
-        if hasattr(resource, 'session'):
-            session.remove()
+from routing import Router
 
 
 app = falcon.API(
     middleware=[
-        SQLAlchemySessionManager(session),
+        alchemy_middleware()
     ]
 )
 
-app.add_route('/', IndexController())
+app.resp_options.secure_cookies_by_default = False
 
-app.add_route('/users', UserController())
-
-
-
-
-
+app = Router(app).get_app()

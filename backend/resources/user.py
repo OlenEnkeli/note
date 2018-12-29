@@ -1,3 +1,4 @@
+from libs.auth import auth_required, make_auth
 from models.user import User
 from schemas.user import UserPublicSchema
 
