@@ -4,8 +4,6 @@ import bcrypt
 from config import config
 from models.user import User
 
-from libs.alchemy import alchemy_session
-
 session_storage = {}
 
 
@@ -20,12 +18,12 @@ def auth_required(req, resp, resource, params):
     resource.current_user = session_storage[req.cookies['user_session']]
 
 
-def make_auth(email):
+def make_auth(credential, user_object):
 
-    if email in session_storage.values():
+    if credential in session_storage:
         return False
 
-    user_credential = email+config['secure']['salt_session']
+    user_credential = credential+config['secure']['salt_session']
 
     session = str(
         bcrypt
@@ -33,13 +31,8 @@ def make_auth(email):
         'utf-8'
     )
 
-    current_user = (
-        alchemy_session()
-        .query(User)
-        .filter(User.email == email)
-        .one()
-    )
+    session_storage[session] = user_object
 
-    session_storage[session] = current_user
+    print(session_storage)
 
     return session

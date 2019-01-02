@@ -1,7 +1,7 @@
 falcon
 SQLAlchemy
 alembic
-gunicorn
+bjoern
 psycopg2
 marshmallow
 marshmallow-jsonapi

@@ -10,3 +10,4 @@ class IndexController(object):
     def on_get(self, req, resp):
         print(self.current_user)
         resp.body = json.dumps({'version': '0.0.1'})
+        

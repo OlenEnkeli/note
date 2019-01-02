@@ -28,6 +28,3 @@ class SQLAlchemySessionManager:
 def alchemy_middleware():
     return SQLAlchemySessionManager(session)
 
-
-def alchemy_session():
-    return session

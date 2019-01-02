@@ -1,4 +1,5 @@
 import falcon
+import bjoern
 
 from libs.alchemy import alchemy_middleware
 
@@ -14,3 +15,5 @@ app = falcon.API(
 app.resp_options.secure_cookies_by_default = False
 
 app = Router(app).get_app()
+
+bjoern.run(app, '127.0.0.1', 8000, reuse_port=True)
