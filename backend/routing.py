@@ -18,6 +18,7 @@ class Router(object):
         self.app.add_route('/users', UserController())
 
         self.app.add_route('/login', LoginController())
+        self.app.add_route('/logout', LogoutController())
 
         return self.app
 

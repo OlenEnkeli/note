@@ -2,7 +2,8 @@ falcon
 SQLAlchemy
 alembic
 bjoern
-psycopg2
+gunicorn
+psycorg2
+psycopg2-binary
 marshmallow
 marshmallow-jsonapi
-bcrypt

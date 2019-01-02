@@ -1,7 +1,7 @@
-from marshmallow_jsonapi import Schema, fields
+from marshmallow import Schema, fields
 
 
-class UserPublicSchema(Schema):
+class UserSchema(Schema):
 
     id = fields.Integer()
     email = fields.String()
