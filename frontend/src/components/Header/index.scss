@@ -1,0 +1,59 @@
+header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 120px;
+  
+  .logo {
+      flex: 1;
+      text-align: center;
+    
+      a {
+        color: white;
+        font-size: 1.8rem;
+        font-family: 'Indie Flower';
+    
+        span {
+          color: #ffe600;
+        }
+      }
+      }
+    
+    nav {
+      flex: 1.2;
+      display: flex;
+      justify-content: space-around;
+    
+      a {
+        color: white;
+        text-decoration: none;
+        font-size: 1.4em;
+        text-shadow: 0 0 3px black;
+    
+        &:hover {
+          text-shadow: 0 0 16px white;
+        }
+    
+      }
+    
+    }
+    
+    .user-menu {
+      flex: 1;    
+      text-align: center;
+    
+      a {
+        background: rgba(0,0,0,0.3);
+        border: 1px solid white;
+        color: #ffe600;
+        padding: 12px 52px;
+        border-radius: 15px;
+        font-size: 1.4em;
+        letter-spacing: 1px;
+    
+        &:hover {
+          background: rgba(70,70,70,0.2);
+        }
+      }  
+    }
+}
