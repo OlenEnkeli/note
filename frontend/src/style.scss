@@ -26,21 +26,21 @@ time, mark, audio, video {
     font-family: 'Indie Flower';
     font-style: normal;
     font-weight: 400;
-    src: url(assets/fonts/IndieFlower.ttf) format(ttf);
+    src: url('./assets/fonts/IndieFlower.ttf');
 }
 
 @font-face {
     font-family: 'Cormorant Unicase';
     font-style: normal;
     font-weight: 300;
-    src: url(assets/fonts/CormorantUnicase-Light.ttf) format(ttf);
+    src: url('./assets/fonts/CormorantUnicase-Light.ttf');
 }
 
 @font-face {
     font-family: 'Cormorant Unicase';
     font-style: normal;
     font-weight: 400;
-    src: url(assets/fonts/CormorantUnicase-Regular.ttf) format(ttf);
+    src: url('./assets/fonts/CormorantUnicase-Regular.ttf');
 }
 
 
