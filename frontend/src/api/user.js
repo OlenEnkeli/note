@@ -2,7 +2,11 @@ import axios from './index';
 
 export default {
   async getCurrentUser() {
-    const user = await axios.get('/');
-    return user.data;
+    try {
+      const user = await axios.get('/users');
+      return user.data;
+    } catch (error) {
+      return undefined;
+    }
   },
 };

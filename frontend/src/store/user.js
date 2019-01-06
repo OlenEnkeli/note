@@ -2,7 +2,6 @@ import userApi from '../api/user';
 
 export default {
   state: {
-    users: [],
     current: [],
   },
 
@@ -18,7 +17,6 @@ export default {
       current.then((user) => {
         commit('setUser', user);
       });
-
     },
   },
 };

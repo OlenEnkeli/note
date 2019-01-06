@@ -38,11 +38,11 @@ header {
     
     }
     
-    .user-menu {
+    .user {
       flex: 1;    
       text-align: center;
     
-      a {
+      a.login {
         background: rgba(0,0,0,0.3);
         border: 1px solid white;
         color: #ffe600;
@@ -54,6 +54,14 @@ header {
         &:hover {
           background: rgba(70,70,70,0.2);
         }
-      }  
+      }
+      
+      &__profile {
+        .user-name {
+          color: #ffe600;
+          font-size: 1.4em;
+          letter-spacing: 2px;
+        }
+      }
     }
 }

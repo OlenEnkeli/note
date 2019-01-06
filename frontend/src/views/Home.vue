@@ -7,7 +7,7 @@
       <br><br><br><br><br><br><br><br><br><br><br>
     </section>
     <section>
-      <h1>{{this.$store.state.user.current}}</h1>
+      <h1>Something another</h1>
       <br><br><br><br><br><br><br><br><br><br><br>
     </section>
     <section class="dark kind">
@@ -54,9 +54,5 @@ section {
 <script>
 export default {
   name: 'home',
-
-  created() {
-    this.$store.dispatch('getCurrentUser');
-  },
 };
 </script>
