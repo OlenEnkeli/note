@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+
     <Header/>
     <main>
       <router-view/>
@@ -18,6 +19,7 @@ export default {
     Footer,
   },
 };
+
 </script>
 
 <style lang="scss" src="./style.scss"></style>

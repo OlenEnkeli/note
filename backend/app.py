@@ -14,3 +14,5 @@ app = falcon.API(
 app.resp_options.secure_cookies_by_default = False
 
 app = Router(app).get_app()
+
+application = app

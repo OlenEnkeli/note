@@ -2,11 +2,12 @@
   <div class="home">
     <section class="light about-us">
       <h1>Немного о нас</h1>
-      <h2>Привет, мы MoonSolution - команда разработчиков-энтузиастов в духе rock`n`roll. </h2><h2>Мы здесь, чтобы решить вашу проблему. </h2>
+      <h2>Привет, мы MoonSolution - команда разработчиков-энтузиастов в духе rock`n`roll. </h2>
+      <h2>Мы здесь, чтобы решить вашу проблему. </h2>
       <br><br><br><br><br><br><br><br><br><br><br>
     </section>
     <section>
-      <h1>Smthing</h1>
+      <h1>{{this.$store.state.user.current}}</h1>
       <br><br><br><br><br><br><br><br><br><br><br>
     </section>
     <section class="dark kind">
@@ -53,5 +54,9 @@ section {
 <script>
 export default {
   name: 'home',
+
+  created() {
+    this.$store.dispatch('getCurrentUser');
+  },
 };
 </script>
