@@ -1,5 +1,4 @@
 import falcon
-import bjoern
 
 from libs.alchemy import alchemy_middleware
 
