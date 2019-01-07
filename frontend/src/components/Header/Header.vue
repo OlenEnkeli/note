@@ -11,11 +11,16 @@
 
     </nav>
     <div class="user">
-      <router-link v-if="!this.$store.state.user.current" to ="/signin"
-        class="login">Войти</router-link>
-      <div class="user__profile">
+      <div class="user__profile" v-if="!this.$store.state.user.current">
         <a class="user-name" href="#">{{this.$store.state.user.current.name}}</a>
       </div>
+      
+      <router-link  to ="/signin" v-else class="login">
+        <div class="circle">
+          <span class="icon arrow"></span>
+        </div>
+        <p class="button-text">Войти</p>
+      </router-link>
     </div>
 
   </header>
