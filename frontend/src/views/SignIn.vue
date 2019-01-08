@@ -12,8 +12,8 @@
 <style scoped lang="scss">
   .signin {
     background: white;
-    margin: 15% auto;
-    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+    margin: 5% auto;
+    box-shadow: 0 0 70px 0 rgba(0, 0, 0, 0.7), 0 5px 20px 0 rgba(0, 0, 0, 0.5);
     padding: 60px;
     width: 340px;
     border-radius: 10px;
