@@ -27,4 +27,3 @@ class SQLAlchemySessionManager:
 
 def alchemy_middleware():
     return SQLAlchemySessionManager(session)
-

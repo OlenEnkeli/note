@@ -42,6 +42,5 @@ def remove_session(credential):
 
     if session not in session_storage:
         return False
-    
-    session_storage.pop(session)
 
+    session_storage.pop(session)

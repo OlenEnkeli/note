@@ -25,8 +25,9 @@ class LoginController(object):
             session()
             .query(User)
             .filter(User.email == email)
-            .filter(User.password == hashlib.sha256(password.encode()).hexdigest())
-            .filter(User.is_active == True)
+            .filter(User.password ==
+                hashlib.sha256(password.encode()).hexdigest())
+            .filter(User.is_active == True)  # nopep8
             .one_or_none()
         )
 
@@ -43,17 +44,17 @@ class LogoutController(object):
 
     @falcon.before(auth_required)
     def on_get(self, req, resp):
-        
+
         if not self.current_user:
             raise falcon.HTTPError(falcon.HTTP_UNAUTHORIZED)
 
         remove_session(self.current_user.email)
-        
+
 
 class ActivateController(object):
 
     def on_get(self, req, resp, code):
-        
+
         if not code:
             raise falcon.HTTPError(falcon.HTTP_BAD_REQUEST)
 
@@ -66,10 +67,8 @@ class ActivateController(object):
 
         if not user:
             raise falcon.HTTPError(falcon.HTTP_NOT_FOUND)
-        
+
         user.is_active = True
         user.activation_code = None
 
         session().commit()
-
-

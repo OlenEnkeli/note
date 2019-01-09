@@ -22,7 +22,3 @@ class Router(object):
         self.app.add_route('/logout', LogoutController())
 
         return self.app
-
-
-        
-
