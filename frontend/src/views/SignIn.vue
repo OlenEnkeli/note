@@ -3,11 +3,22 @@
 			<div class="signin__form">
 				<input type="text" name="email" class="email" placeholder="e-mail">
 				<input type="password" name="password" class="password"  placeholder="пароль">
-				<input type="submit" class="button button__submit" value="Войти">
+				<input type="submit" class="button button__submit" v-on:click="login" value="Войти">
+
         <a href="#" class="button button__reg">Регистрация</a>
 			</div>
 	</div>
 </template>
+
+<script>
+export default {
+  methods: {
+    login: function(){
+      this.$store.dispatch('login', {email: 'test@test.ru', password: '123456'});
+    },
+  }
+}
+</script>
 
 <style scoped lang="scss">
   .signin {

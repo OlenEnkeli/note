@@ -13,10 +13,14 @@ export default {
 
   actions: {
     getCurrentUser({ commit }) {
-      const current = userApi.getCurrentUser();
-      current.then((user) => {
-        commit('setUser', user);
-      });
+      userApi.getCurrentUser()
+        .then((user) => {
+          commit('setUser', user);
+        });
+    },
+
+    login({commit}, email, password) {
+      userApi.login(email, password);
     },
   },
 };

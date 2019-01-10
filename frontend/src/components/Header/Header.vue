@@ -11,7 +11,7 @@
 
     </nav>
     <div class="user">
-      <div class="user__profile" v-if="!this.$store.state.user.current">
+      <div class="user__profile" v-if="this.$store.state.user.current">
         <a class="user-name" href="#">{{this.$store.state.user.current.name}}</a>
       </div>
       

@@ -9,4 +9,17 @@ export default {
       return undefined;
     }
   },
+
+  async login(credential) {
+    try {
+      await axios.post('/login', {
+        email: credential.email,
+        password: credential.password,
+      });
+      return true;
+    } catch (error) {
+      return false;
+    }
+  },
+
 };
