@@ -21,9 +21,9 @@ class LoginController(object):
         email = req.parsed['email']
         password = req.parsed['password']+config['secure']['salt_password']
 
-        user = (
+        user_id = (
             session()
-            .query(User)
+            .query(User.id)
             .filter(User.email == email)
             .filter(User.password ==
                 hashlib.sha256(password.encode()).hexdigest())
@@ -31,11 +31,11 @@ class LoginController(object):
             .one_or_none()
         )
 
-        if not user:
+        if not user_id:
             raise falcon.HTTPError(falcon.HTTP_UNAUTHORIZED)
 
         try:
-            resp.set_cookie('user_session', make_session(email, user))
+            resp.set_cookie('user_session', make_session(email, user_id[0]))
         except Exception:
             raise falcon.HTTPError(falcon.HTTP_UNAUTHORIZED)
 
@@ -45,7 +45,7 @@ class LogoutController(object):
     @falcon.before(auth_required)
     def on_get(self, req, resp):
 
-        if not self.current_user:
+        if not self.current_user_id:
             raise falcon.HTTPError(falcon.HTTP_UNAUTHORIZED)
 
         remove_session(self.current_user.email)

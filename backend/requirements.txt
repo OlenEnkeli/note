@@ -5,4 +5,4 @@ bjoern
 gunicorn
 psycopg2-binary
 marshmallow
-marshmallow-jsonapi
+redis

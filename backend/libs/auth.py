@@ -3,33 +3,43 @@ import hashlib
 
 from config import config
 from models.user import User
+from libs.alchemy import session
+from libs.redis import Redis
 
-session_storage = {}
-
-
-def auth_required(req, resp, resource, params):
-
+def auth_required(req,resp,resource, params):
     if 'user_session' not in req.cookies:
         raise falcon.HTTPUnauthorized()
 
-    if req.cookies['user_session'] not in session_storage:
+    user_id = Redis.get(req.cookies['user_session'])
+
+    if not user_id:
         raise falcon.HTTPUnauthorized()
+    
+    resource.current_user_id = int(user_id)
 
-    resource.current_user = session_storage[req.cookies['user_session']]
+
+def user_required(req,resp,resource, params):
+    auth_required(req,resp,resource,params)
+
+    if resource.current_user_id:
+        resource.current_user = (
+                session()
+                .query(User)
+                .filter(User.id == resource.current_user_id)
+                .one()
+        )
 
 
-def make_session(credential, user_object):
+def make_session(credential, user_id):
 
     user_credential = credential+config['secure']['salt_session']
 
     session = hashlib.sha256(user_credential.encode()).hexdigest()
 
-    if session in session_storage:
+    if Redis.get(session):
         return False
 
-    session_storage[session] = user_object
-
-    print(session_storage)
+    Redis.set(session, user_id)
 
     return session
 
@@ -40,7 +50,9 @@ def remove_session(credential):
 
     session = hashlib.sha256(user_credential.encode()).hexdigest()
 
-    if session not in session_storage:
+    if not Redis.get(session):
         return False
+    
+    Redis.delete(session)
 
-    session_storage.pop(session)
+    
