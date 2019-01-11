@@ -5,20 +5,13 @@ from resources.user import *
 from resources.auth import *
 
 
-class Router(object):
+def make_route(app):
+    
+    app.add_route('/', IndexController())
 
-    def __init__(self, app):
+    app.add_route('/users', UserController())
 
-        self.app = app
+    app.add_route('/login', LoginController())
+    app.add_route('/activate/{code}', ActivateController())
+    app.add_route('/logout', LogoutController())
 
-    def get_app(self):
-
-        self.app.add_route('/', IndexController())
-
-        self.app.add_route('/users', UserController())
-
-        self.app.add_route('/login', LoginController())
-        self.app.add_route('/activate/{code}', ActivateController())
-        self.app.add_route('/logout', LogoutController())
-
-        return self.app

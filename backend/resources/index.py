@@ -1,7 +1,4 @@
 import json
-import falcon
-
-from libs.auth import auth_required
 
 
 class IndexController(object):
