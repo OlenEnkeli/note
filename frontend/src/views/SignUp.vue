@@ -1,85 +1,115 @@
 <template>
-    <div class="main-signup">
-		<div class="main-signup__head">
-			<p>Sign Up</p>
-		</div>
-		<div class="main-signup__middle">
-			<form>
-				<input type="text" placeholder="Login">
-				<input type="password" placeholder="Password">
-                <input type="password" placeholder="Repeat Password">
-                <input type="email" placeholder="E-mail">
-				<input type="submit" value="Sign Up">
-			</form>
-		</div>
-	</div>
+  <div class="signup">
+    <div class="signup__form">
+      <input type="text" placeholder="Логин">
+      <input type="password" class="pass" placeholder="Пароль">
+      <input type="password" class="rep_pass" placeholder="Повторить пароль">
+      <input type="email" class="email" placeholder="E-mail">
+      <input type="submit" class="button button__submit" value="Зарегестрироваться">
+    </div>
+  </div>
 </template>
 
 <style scoped lang="scss">
-.main-signup {
-    width: 455px;
-    height: 250px;
-    margin: 20px auto;
+  .signup{
+    background: white;
+    margin: 15% auto;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+    padding: 60px;
+    width: 340px;
+    border-radius: 50px;
 
-    &__head {
-        background: #000;
-        border-bottom: 1px solid #2d2f32;
-        border-radius: 10px 10px 0 0;
-        padding: 6px 0;
+    &__form {
 
-        p {
+    input {
+      font-family: 'Cormorant Unicase';
+      font-weight: 400;
+      display: block;
+      width: 90%;
+      font-size: 1.3rem;
+      padding: 7px 5%;
+      border: 1px solid #e2e2e2;
 
+      &.pass, &.rep_pass, &.email {
+          color: #4b4b4b;
+          margin: 20px 0;
+      }
+
+      &.button {
+        width: 100%;
+        margin: 15px 0;
+        font-size: 1.2rem;
+        color: white;
+        padding: 11px 0;
+        text-align: center;
+
+        &__submit {
+          background: linear-gradient(120deg, rgb(12, 151, 175), rgb(12, 175, 175));
+
+          &:hover {
+              cursor: pointer;
+              background: #007175;
+          }
         }
+      }
     }
-    
+  }
 }
-.main-signup .main-signup__head {
+</style><template>
+  <div class="signup">
+    <div class="signup__form">
+      <input type="text" placeholder="Логин">
+      <input type="password" class="pass" placeholder="Пароль">
+      <input type="password" class="rep_pass" placeholder="Повторить пароль">
+      <input type="email" class="email" placeholder="E-mail">
+      <input type="submit" class="button button__submit" value="Зарегестрироваться">
+    </div>
+  </div>
+</template>
 
-}
-.main-signup .main-signup__head p {
-  color: #586069;
-  text-align: left;
-  font-size: 18px;
-  padding-left: 25px;
-}
-.main-signup .main-signup__middle {
-  background: #000;
-  border-bottom: 1px solid #2d2f32;
-  border-top: 1px solid #2d2f32;
-  border-radius: 0 0 10px 10px;
-}
-.main-signup .main-signup__middle form {
-  margin: 20px 0 20px 0;
-}
-.main-signup .main-signup__middle form input[type="text"], .main-signup .main-signup__middle form input[type="password"], .main-signup .main-signup__middle form input[type="password"], .main-signup .main-signup__middle form [type="email"], .main-signup .main-signup__middle form input[type="submit"] {
-  background: #f5f5f5;
-  border-radius: 5px 5px 0 0;
-  border: none;
-  color: #25262a;
-  display: block;
-  margin: 0 20px;
-  outline: none;
-  padding: 15px 0;
-  width: 90%;
-}
-.main-signup .main-signup__middle form input[type="text"], .main-signin .main-signin__middle .middle__form input[type="password"], .main-signup .main-signup__middle form input[type="password"], .main-signup .main-signup__middle form [type="email"] {
-  padding:15px 20px;
-  width:81%;
-}
-.main-signup .main-signup__middle form input[type="password"], .main-signup .main-signup__middle form [type="email"] {
-  border-top: 1px solid #acabab;
-  border-radius: 0 0 5px 5px;
-}
-.main-signup .main-signup__middle form input[type="submit"] {
-  background: #e6b333;
-  border-radius: 5px;
-  color: #f5f5f5;
-  font-size: 18px;
-  margin-top: 15px;
-  cursor:pointer;
-}
-.main-signup .main-signup__middle form input[type="submit"]:active {
-  background: #80d6f7;
-}
+<style scoped lang="scss">
+  .signup{
+    background: white;
+    margin: 15% auto;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+    padding: 60px;
+    width: 340px;
+    border-radius: 50px;
 
+    &__form {
+
+    input {
+      font-family: 'Cormorant Unicase';
+      font-weight: 400;
+      display: block;
+      width: 90%;
+      font-size: 1.3rem;
+      padding: 7px 5%;
+      border: 1px solid #e2e2e2;
+
+      &.pass, &.rep_pass, &.email {
+          color: #4b4b4b;
+          margin: 20px 0;
+      }
+
+      &.button {
+        width: 100%;
+        margin: 15px 0;
+        font-size: 1.2rem;
+        color: white;
+        padding: 11px 0;
+        text-align: center;
+
+        &__submit {
+          background: linear-gradient(120deg, rgb(12, 151, 175), rgb(12, 175, 175));
+
+          &:hover {
+              cursor: pointer;
+              background: #007175;
+          }
+        }
+      }
+    }
+  }
+}
 </style>
