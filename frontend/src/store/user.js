@@ -19,7 +19,7 @@ export default {
         });
     },
 
-    login({commit}, email, password) {
+    login({ commit }, email, password) {
       userApi.login(email, password);
     },
   },
