@@ -1,5 +1,7 @@
 import json
 
+from libs.email import send_mail
+
 
 class IndexController(object):
 
