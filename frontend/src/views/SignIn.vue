@@ -4,8 +4,9 @@
 				<input type="text" name="email" class="email" placeholder="e-mail">
 				<input type="password" name="password" class="password"  placeholder="пароль">
 				<input type="submit" class="button button__submit" v-on:click="login" value="Войти">
-
-        <a href="#" class="button button__reg">Регистрация</a>
+        <router-link to="/signin/signup">
+         <input type="submit" class="button button__reg" value="Регистрация">
+        </router-link>
 			</div>
 	</div>
 </template>
@@ -36,7 +37,7 @@ export default {
 
     &__form {
 
-      input,a {
+      input{
         font-family: 'Cormorant Unicase';
         font-weight: 400;
         display: block;

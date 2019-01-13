@@ -1,8 +1,9 @@
-from config import config
-
 from sqlalchemy import create_engine
 from sqlalchemy.orm import scoped_session
 from sqlalchemy.orm import sessionmaker
+
+from config import config
+
 
 engine = create_engine(
     '{engine}://{user}:{password}@{host}:{port}/{db}'.format(**config['db'])
