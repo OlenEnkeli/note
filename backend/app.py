@@ -4,7 +4,6 @@ from libs.alchemy import alchemy_middleware
 
 from routing import make_route
 
-
 app = falcon.API(
     middleware=[
         alchemy_middleware()

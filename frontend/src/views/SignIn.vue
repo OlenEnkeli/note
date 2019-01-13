@@ -15,6 +15,11 @@ export default {
   methods: {
     login: function(){
       this.$store.dispatch('login', {email: 'test@test.ru', password: '123456'});
+      this.$store.dispatch('getCurrentUser').then(
+        () => {
+          this.$router.push({'name' : 'home'});
+        }
+      );
     },
   }
 }

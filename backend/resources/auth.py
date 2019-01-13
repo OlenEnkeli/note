@@ -35,7 +35,11 @@ class LoginController(object):
             raise falcon.HTTPError(falcon.HTTP_UNAUTHORIZED)
 
         try:
-            resp.set_cookie('user_session', make_session(email, user_id[0]))
+            resp.set_cookie('user_session', make_session(
+                credential=email,
+                user_data=req.host+req.user_agent,
+                user_id=user_id[0]))
+
         except Exception:
             raise falcon.HTTPError(falcon.HTTP_UNAUTHORIZED)
 
@@ -45,10 +49,7 @@ class LogoutController(object):
     @falcon.before(auth_required)
     def on_get(self, req, resp):
 
-        if not self.current_user_id:
-            raise falcon.HTTPError(falcon.HTTP_UNAUTHORIZED)
-
-        remove_session(self.current_user.email)
+        remove_session(req.cookies['user_session'])
 
 
 class ActivateController(object):

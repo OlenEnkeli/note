@@ -6,7 +6,8 @@ from models.user import User
 from libs.alchemy import session
 from libs.redis import Redis
 
-def auth_required(req,resp,resource, params):
+
+def auth_required(req, resp, resource, params):
     if 'user_session' not in req.cookies:
         raise falcon.HTTPUnauthorized()
 
@@ -14,12 +15,13 @@ def auth_required(req,resp,resource, params):
 
     if not user_id:
         raise falcon.HTTPUnauthorized()
-    
+
     resource.current_user_id = int(user_id)
 
 
-def user_required(req,resp,resource, params):
-    auth_required(req,resp,resource,params)
+def user_required(req, resp, resource, params):
+
+    auth_required(req, resp, resource, params)
 
     if resource.current_user_id:
         resource.current_user = (
@@ -30,9 +32,9 @@ def user_required(req,resp,resource, params):
         )
 
 
-def make_session(credential, user_id):
+def make_session(credential, user_data, user_id):
 
-    user_credential = credential+config['secure']['salt_session']
+    user_credential = credential+config['secure']['salt_session']+user_data
 
     session = hashlib.sha256(user_credential.encode()).hexdigest()
 
@@ -44,15 +46,6 @@ def make_session(credential, user_id):
     return session
 
 
-def remove_session(credential):
+def remove_session(session):
 
-    user_credential = credential+config['secure']['salt_session']
-
-    session = hashlib.sha256(user_credential.encode()).hexdigest()
-
-    if not Redis.get(session):
-        return False
-    
     Redis.delete(session)
-
-    

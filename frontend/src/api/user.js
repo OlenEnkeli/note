@@ -22,4 +22,13 @@ export default {
     }
   },
 
+  async logout() {
+    try {
+      await axios.get('/logout');
+      return true;
+    } catch (error) {
+      return false;
+    }
+  },
+
 };

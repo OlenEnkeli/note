@@ -6,7 +6,8 @@ header {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  height: 120px;
+  height: 30px;
+  margin: 40px 0;
   
   .logo {
       flex: 1;
@@ -21,10 +22,10 @@ header {
           color: #ffe600;
         }
       }
-      }
+  }
     
     nav {
-      flex: 1.2;
+      flex: 1.5;
       display: flex;
       justify-content: space-around;
     
@@ -110,12 +111,57 @@ header {
        }
     }
       
-      &__profile {
-        .user-name {
-          color: #ffe600;
-          font-size: 1.4em;
-          letter-spacing: 2px;
+    &__profile {
+      width: 300px;
+      margin: auto;
+
+      .user-name {
+        color: #ffe600;
+        font-size: 1.4em;
+        letter-spacing: 2px;
+        padding-bottom: 10px;
+      }
+
+      &:hover {
+        .user__profile__menu {
+          visibility: visible;
+        }
+      }
+
+      &__menu {
+       position: absolute;
+       top: 80px;
+       visibility: hidden;
+       width: 300px;
+       background: white;
+       border: 1px solid #c5c5c5;
+
+       &:hover {
+         visibility: visible;
+       }
+
+        a {
+          display: block;
+          color: #353535;
+          font-size: 1.2rem;
+
+          span {
+            display: block;
+            padding: 20px 0;
+            margin: 0 30px;
+            border-bottom: 1px dashed #c7c7c7;
+          }
+
+          &:last-child span {
+            border-bottom: none;
+          }
+
+          .exit {
+            color: #a12525;
+          }
+
         }
       }
     }
+  }
 }

@@ -6,7 +6,7 @@ from resources.auth import *
 
 
 def make_route(app):
-    
+
     app.add_route('/', IndexController())
 
     app.add_route('/users', UserController())
@@ -14,4 +14,3 @@ def make_route(app):
     app.add_route('/login', LoginController())
     app.add_route('/activate/{code}', ActivateController())
     app.add_route('/logout', LogoutController())
-

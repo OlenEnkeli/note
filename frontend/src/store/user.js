@@ -9,6 +9,9 @@ export default {
     setUser(state, user) {
       state.current = user;
     },
+    unsetUser(state) {
+      state.current = [];
+    },
   },
 
   actions: {
@@ -19,8 +22,13 @@ export default {
         });
     },
 
-    login({commit}, email, password) {
+    login({ commit }, email, password) {
       userApi.login(email, password);
+    },
+
+    logout({ commit }) {
+      userApi.logout();
+      commit('unsetUser');
     },
   },
 };
