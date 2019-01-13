@@ -10,7 +10,7 @@ export default {
       state.current = user;
     },
     unsetUser(state) {
-      state.current = [];
+      state.current = undefined;
     },
   },
 
@@ -27,8 +27,8 @@ export default {
     },
 
     logout({ commit }) {
-      userApi.logout();
       commit('unsetUser');
+      userApi.logout();
     },
   },
 };
